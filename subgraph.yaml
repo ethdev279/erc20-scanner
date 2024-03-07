@@ -1,29 +1,29 @@
 specVersion: 1.0.0
-description: USDC Subgraph
-repository: https://github.com/ethdev279/uhack-subgraph
+description: Subgraph for All ERC20 Token Transfers, Accounts
+repository: https://github.com/ethdev279/erc20-scanner-uhack
 indexerHints:
   prune: auto
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: USDC
+    name: ERC20Token
     network: mainnet
     source:
-      address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-      abi: USDC
-      startBlock: 18921498
+      abi: ERC20Token
+      startBlock: 19381592
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - User
+        - Account
+        - Token
         - Transfer
       abis:
-        - name: USDC
-          file: ./abis/USDC.json
+        - name: ERC20Token
+          file: ./abis/ERC20Token.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/usdc.ts
+      file: ./src/mapping.ts
