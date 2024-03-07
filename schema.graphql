@@ -1,16 +1,26 @@
-type User @entity {
+type Account @entity {
   id: ID!
   address: String!
-  balance: BigInt!
-  updatedAt: BigInt!
   transfers: [Transfer!]! @derivedFrom(field: "from")
+  updatedAt: BigInt!
 }
 
 type Transfer @entity(immutable: true) {
-  id: ID!
+  id: Bytes!
   txHash: String!
-  from: User!
-  to: User!
+  token: Token!
+  from: Account!
+  to: Account!
   value: BigInt!
   timestamp: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  address: String!
+  name: String!
+  symbol: String!
+  decimals: Int!
+  totalSupply: BigInt!
+  transfers: [Transfer!]! @derivedFrom(field: "token")
 }
