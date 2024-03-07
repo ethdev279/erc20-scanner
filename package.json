@@ -4,15 +4,17 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ uhack-subgraph",
-    "create-local": "graph create --node http://localhost:8020/ uhack-subgraph",
-    "remove-local": "graph remove --node http://localhost:8020/ uhack-subgraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 uhack-subgraph",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ erc20-tracker-uhack",
+    "create-local": "graph create --node http://localhost:8020/ erc20-tracker-uhack",
+    "remove-local": "graph remove --node http://localhost:8020/ erc20-tracker-uhack",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 erc20-tracker-uhack",
     "test": "graph test"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.68.5",
     "@graphprotocol/graph-ts": "0.32.0"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }
