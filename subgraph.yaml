@@ -1,6 +1,6 @@
 specVersion: 1.0.0
 description: Subgraph for All ERC20 Token Transfers, Accounts
-repository: https://github.com/ethdev279/uhack-subgraph
+repository: https://github.com/ethdev279/erc20-scanner-uhack
 indexerHints:
   prune: auto
 schema:
@@ -11,7 +11,7 @@ dataSources:
     network: mainnet
     source:
       abi: ERC20Token
-      startBlock: 18921498
+      startBlock: 19381592
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

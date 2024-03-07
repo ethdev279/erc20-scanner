@@ -1,6 +1,6 @@
-# ERC20 Token Tracker
+# ERC20 Scanner
 
-This project aims to provide a comprehensive ERC20 token transfer tracking system by building a custom subgraph that indexes all ERC20 token transfers on the Ethereum Mainnet. It offers a Next.js application that utilizes this subgraph to enable users to track token transfers, search transfers by address, and view all available tokens. It has dedicated pages for all transfers, all tokens, each token transfers, and addresses.
+This project aims to provide a comprehensive ERC20 token transfer tracking system by building a custom subgraph that indexes all ERC20 token transfers on the Ethereum Mainnet. While many subgraphs typically track one token or a limited array of tokens, this project's custom subgraph sets itself apart by comprehensively tracking all ERC20 token transfers on the Ethereum Mainnet. Its inherent design allows it to seamlessly track all token transfers on a given network, offering unparalleled flexibility and adaptability. It offers a Next.js application that utilizes this subgraph to enable users to track token transfers, search transfers by address, and view all available tokens. It has dedicated pages for all transfers, all tokens, each token transfers, and addresses.
 
 ### How it's built:
 
@@ -14,8 +14,8 @@ This method enables a comprehensive tracking system that dynamically captures ER
 
 ## Deployed Resources:
 
-- [ERC20 Tracker Subgraph](https://thegraph.com/studio/subgraph/erc20-tracker-uhack/)
-- [ERC20 Tracker App](https://erc20-scanner.vercel.app/)
+- [ERC20 Scanner Subgraph](https://thegraph.com/studio/subgraph/erc20-tracker-uhack/)
+- [ERC20 Scanner App](https://erc20-scanner.vercel.app/)
 
 ## Getting Started
 
@@ -56,13 +56,15 @@ Open http://localhost:3000 with your browser to see the result.
 
 ### Screenshots
 
-![sc1](https://github.com/ethdev279/erc20-scanner-uhack/assets/29351207/976fc3a2-6bf7-40f1-9000-c566716655fc)
+![sc1](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/55fd83b7-97f9-46f9-b2b9-3dd95379ba1c)
 
-![sc2](https://github.com/ethdev279/erc20-scanner-uhack/assets/29351207/4264eb23-638a-4d98-bc78-97598d273439)
+![sc2](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/aac3eb40-ef7f-4aa8-abc5-81eafc243720)
 
-![sc3](https://github.com/ethdev279/erc20-scanner-uhack/assets/29351207/b534a920-0200-45bd-b5d8-ef03c3a052af)
+![sc3](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/f169e93c-e395-44b0-9113-05c2f86fe42d)
 
-![sc4](https://github.com/ethdev279/erc20-scanner-uhack/assets/29351207/a028a8f1-32ec-4136-9852-fa85312c6e3b)
+![sc4](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/dbe72d8d-bfe4-4f32-9ee0-90baf889685c)
+
+![sc5](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/45923ac2-f3a1-4e89-a996-c701db9079a0)
 
 ## Built With
 

@@ -26,7 +26,7 @@ export default function SiteLayout({ children }) {
             fontSize: "15px"
           }}
         >
-          ERC20 Tracker
+          ERC20 Scanner
           <small style={{ fontSize: "10px" }}> {chainName}</small>
         </p>
       </Header>
@@ -47,7 +47,7 @@ export default function SiteLayout({ children }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ©{new Date().getFullYear()} ERC20 Tracker. Powered by TheGraph &
+          ©{new Date().getFullYear()} ERC20 Scanner. Powered by TheGraph &
           Next.js
         </a>
         <p style={{ fontSize: "12px" }}>v0.0.1</p>
