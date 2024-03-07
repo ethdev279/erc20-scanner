@@ -1,5 +1,6 @@
 "use client";
 import { Layout } from "antd";
+import { chainName } from "../utils/config";
 import "antd/dist/reset.css";
 
 const { Header, Footer, Content } = Layout;
@@ -26,7 +27,7 @@ export default function SiteLayout({ children }) {
           }}
         >
           ERC20 Tracker
-          <small style={{ fontSize: "10px" }}>Mainnet</small>
+          <small style={{ fontSize: "10px" }}> {chainName}</small>
         </p>
       </Header>
       <Content
