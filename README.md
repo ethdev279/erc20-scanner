@@ -15,7 +15,8 @@ This method enables a comprehensive tracking system that dynamically captures ER
 ## Deployed Resources:
 
 - [ERC20 Scanner Subgraph](https://thegraph.com/studio/subgraph/erc20-tracker-uhack/)
-- [ERC20 Scanner App](https://erc20-scanner.vercel.app/)
+- [ERC20 Scanner App](https://erc20-scanner-uhack.vercel.app/)
+- [ERC20 Scanner Replit](https://replit.com/@ethdev279/erc20-scanner-uhack)
 
 ## Getting Started
 
@@ -72,12 +73,14 @@ Open http://localhost:3000 with your browser to see the result.
 - [Next.js](https://nextjs.org/)
 - [Ant Design](https://ant.design/)
 - [Ethers.js](https://docs.ethers.io/v5/)
+- [Replit](https://replit.com/)
 
 ## References
 
 - [The Graph Documentation](https://thegraph.com/docs/en/)
 - [Ethers.js Documentation](https://docs.ethers.io/v5/)
 - [Next.js Documentation](https://nextjs.org/docs/getting-started)
+- [Replit Documentation](https://docs.replit.com/)
 
 ## Safety
 
