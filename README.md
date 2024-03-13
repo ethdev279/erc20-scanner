@@ -57,15 +57,15 @@ Open http://localhost:3000 with your browser to see the result.
 
 ### Screenshots
 
-![sc1](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/55fd83b7-97f9-46f9-b2b9-3dd95379ba1c)
+![uhack-sc1](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/028fbaf3-0c80-4ea4-891a-37513a208c0c)
 
-![sc2](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/aac3eb40-ef7f-4aa8-abc5-81eafc243720)
+![uhack-sc2](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/b17810d1-60ff-40c2-93c9-4ea30467cc55)
 
-![sc3](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/f169e93c-e395-44b0-9113-05c2f86fe42d)
+![uhack-sc3](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/e88c89e6-4a5b-4c6d-950a-597fe41a74b8)
 
-![sc4](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/dbe72d8d-bfe4-4f32-9ee0-90baf889685c)
+![uhack-sc4](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/2a2b411b-7543-45f0-9e92-26638736001b)
 
-![sc5](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/45923ac2-f3a1-4e89-a996-c701db9079a0)
+![uhack-sc5](https://github.com/ethdev279/erc20-scanner-uhack/assets/45661693/904aee02-f7da-4974-b0ba-7d104d8b1d98)
 
 ## Built With
 
