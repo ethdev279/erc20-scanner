@@ -14,7 +14,7 @@ This method enables a comprehensive tracking system that dynamically captures ER
 
 ## Deployed Resources:
 
-- [ERC20 Scanner Subgraph](https://thegraph.com/studio/subgraph/erc20-tracker-uhack/)
+- [ERC20 Scanner Subgraph](https://api.studio.thegraph.com/query/18583/erc20-tracker-uhack/v0.0.5)
 - [ERC20 Scanner App](https://erc20-scanner-uhack.vercel.app/)
 - [ERC20 Scanner Replit](https://replit.com/@ethdev279/erc20-scanner-uhack)
 
