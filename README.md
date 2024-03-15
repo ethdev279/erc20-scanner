@@ -40,6 +40,81 @@ graph deploy --node https://api.studio.thegraph.com/deploy/ <SUBGRAPH_SLUG>
 
 ```
 
+#### Sample Subgraph Queries:
+
+```graphql
+query GetTokens {
+  tokens(first: 10, skip: 0, orderBy: totalSupply, orderDirection: desc) {
+    id
+    name
+    symbol
+    decimals
+    totalSupply
+  }
+}
+
+query GetAccounts {
+  accounts(
+    first: 10
+    skip: 0
+    orderBy: updatedAt
+    orderDirection: desc
+    where: {}
+  ) {
+    id
+    address
+    updatedAt
+    transfers(first: 10, skip: 0, orderBy: timestamp, orderDirection: desc) {
+      id
+      from {
+        id
+      }
+      to {
+        id
+      }
+      token {
+        id
+        name
+        symbol
+        decimals
+      }
+      txHash
+      value
+      timestamp
+    }
+  }
+}
+
+query GetTransfers {
+  transfers(
+    first: 10
+    skip: 10
+    orderBy: timestamp
+    orderDirection: desc
+    where: {}
+  ) {
+    id
+    from {
+      id
+    }
+    to {
+      id
+    }
+    token {
+      id
+      decimals
+      name
+      symbol
+      totalSupply
+    }
+    txHash
+    value
+    timestamp
+  }
+}
+```
+
+
 ### Client Setup
 
 > Note: Make sure to update the subgraph endpoint and chain config in `client/app/utils/config.js`
