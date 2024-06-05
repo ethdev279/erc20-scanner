@@ -5,7 +5,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { formatUnits } from "@ethersproject/units";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Button, Input, message, Space, Table, Breadcrumb } from "antd";
+import { Button, Input, message, Space, Table, Breadcrumb, Tag } from "antd";
 import { SyncOutlined, ExportOutlined } from "@ant-design/icons";
 import { graphqlClient as client } from "@/app/utils";
 import { explorerUrl } from "@/app/utils/config";
@@ -13,7 +13,7 @@ import { TOKEN_TRANSFERS_QUERY } from "@/app/utils/graphqlQueries";
 
 dayjs.extend(relativeTime);
 
-const tokenTransferColumns = [
+const getTokenTransferColumns = (addressParam) => [
   {
     title: "Transaction ID",
     key: "txHash",
@@ -46,7 +46,7 @@ const tokenTransferColumns = [
     title: "From",
     key: "from",
     ellipsis: true,
-    width: "8%",
+    width: "7%",
     sorter: (a, b) => a?.from?.address?.localeCompare(b?.from?.address),
     render: ({ from }) => (
       <Link href={`/address/${from.address}`}>{from.address}</Link>
@@ -56,7 +56,7 @@ const tokenTransferColumns = [
     title: "To",
     key: "to",
     ellipsis: true,
-    width: "8%",
+    width: "7%",
     sorter: (a, b) => a?.to?.address?.localeCompare(b?.to?.address),
     render: ({ to }) => (
       <Link href={`/address/${to.address}`}>{to.address}</Link>
@@ -65,12 +65,24 @@ const tokenTransferColumns = [
   {
     title: "Value",
     key: "value",
-    width: "4%",
+    width: "5%",
     sorter: (a, b) => a.value - b.value,
-    render: ({ value, token }) =>
-      `${formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1")} ${
-        token?.symbol
-      }`
+    render: ({ value, token, from }) => (
+      <Space>
+        {from.address === addressParam ? (
+          <Tag color="gold" bordered={false}>
+            OUT
+          </Tag>
+        ) : (
+          <Tag color="green" bordered={false}>
+            IN
+          </Tag>
+        )}
+        {`${formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1")} ${
+          token?.symbol
+        }`}
+      </Space>
+    )
   },
   {
     title: "Token",
@@ -91,6 +103,8 @@ export default function Address({ params: { id } }) {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q") || "";
   const pathName = usePathname();
+
+  const tokenTransferColumns = getTokenTransferColumns(id);
 
   const getTokenTransfers = async () => {
     setDataLoading(true);
