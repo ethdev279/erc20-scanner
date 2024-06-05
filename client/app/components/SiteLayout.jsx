@@ -43,7 +43,7 @@ export default function SiteLayout({ children }) {
       </Content>
       <Footer style={{ textAlign: "center" }}>
         <a
-          href="https://github.com/Salmandabbakuti"
+          href="https://github.com/ethdev279/erc20-scanner"
           target="_blank"
           rel="noopener noreferrer"
         >
