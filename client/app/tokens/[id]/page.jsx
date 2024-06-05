@@ -3,9 +3,19 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { formatUnits } from "@ethersproject/units";
+import { AddressZero } from "@ethersproject/constants";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Button, Input, message, Space, Table, Breadcrumb, Card } from "antd";
+import {
+  Button,
+  Input,
+  message,
+  Space,
+  Table,
+  Breadcrumb,
+  Card,
+  Tag
+} from "antd";
 import { SyncOutlined, ExportOutlined } from "@ant-design/icons";
 import { graphqlClient as client } from "@/app/utils";
 import { explorerUrl } from "@/app/utils/config";
@@ -70,10 +80,21 @@ const tokenTransferColumns = [
     key: "value",
     width: "4%",
     sorter: (a, b) => a.value - b.value,
-    render: ({ value, token }) =>
-      `${formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1")} ${
-        token?.symbol
-      }`
+    render: ({ value, token, from, to }) => (
+      <Space>
+        {[from.address, to.address].includes(AddressZero) && (
+          <Tag
+            color={from.address === AddressZero ? "green" : "gold"}
+            bordered={false}
+          >
+            {from.address === AddressZero ? "MINT" : "BURN"}
+          </Tag>
+        )}
+        {formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1") +
+          " " +
+          token?.symbol}
+      </Space>
+    )
   },
   {
     title: "Token",

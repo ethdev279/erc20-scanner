@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { formatUnits } from "@ethersproject/units";
+import { AddressZero } from "@ethersproject/constants";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Button, Input, message, Space, Table, Breadcrumb, Tag } from "antd";
@@ -67,22 +68,27 @@ const getTokenTransferColumns = (addressParam) => [
     key: "value",
     width: "5%",
     sorter: (a, b) => a.value - b.value,
-    render: ({ value, token, from }) => (
-      <Space>
-        {from.address === addressParam ? (
-          <Tag color="gold" bordered={false}>
-            OUT
+    render: ({ value, token, from, to }) => {
+      let tag;
+      if (from.address === AddressZero) tag = "MINT";
+      else if (to.address === AddressZero) tag = "BURN";
+      else if (from.address === addressParam) tag = "OUT";
+      else tag = "IN";
+
+      return (
+        <Space>
+          <Tag
+            color={["MINT", "IN"].includes(tag) ? "green" : "gold"}
+            bordered={false}
+          >
+            {tag}
           </Tag>
-        ) : (
-          <Tag color="green" bordered={false}>
-            IN
-          </Tag>
-        )}
-        {`${formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1")} ${
-          token?.symbol
-        }`}
-      </Space>
-    )
+          {formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1") +
+            " " +
+            token?.symbol}
+        </Space>
+      );
+    }
   },
   {
     title: "Token",

@@ -3,9 +3,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { formatUnits } from "@ethersproject/units";
+import { AddressZero } from "@ethersproject/constants";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Button, Input, message, Space, Table, Breadcrumb } from "antd";
+import { Button, Input, message, Space, Table, Breadcrumb, Tag } from "antd";
 import { SyncOutlined, ExportOutlined, EnterOutlined } from "@ant-design/icons";
 import { graphqlClient as client } from "./utils";
 import { explorerUrl } from "./utils/config";
@@ -46,7 +47,7 @@ const tokenTransferColumns = [
     title: "From",
     key: "from",
     ellipsis: true,
-    width: "8%",
+    width: "7%",
     sorter: (a, b) => a?.from?.address?.localeCompare(b?.from?.address),
     render: ({ from }) => (
       <Link href={`/address/${from.address}`}>{from.address}</Link>
@@ -56,7 +57,7 @@ const tokenTransferColumns = [
     title: "To",
     key: "to",
     ellipsis: true,
-    width: "8%",
+    width: "7%",
     sorter: (a, b) => a?.to?.address?.localeCompare(b?.to?.address),
     render: ({ to }) => (
       <Link href={`/address/${to.address}`}>{to.address}</Link>
@@ -65,12 +66,23 @@ const tokenTransferColumns = [
   {
     title: "Value",
     key: "value",
-    width: "4%",
+    width: "5%",
     sorter: (a, b) => a.value - b.value,
-    render: ({ value, token }) =>
-      `${formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1")} ${
-        token?.symbol
-      }`
+    render: ({ value, token, from, to }) => (
+      <Space>
+        {[from.address, to.address].includes(AddressZero) && (
+          <Tag
+            color={from.address === AddressZero ? "green" : "gold"}
+            bordered={false}
+          >
+            {from.address === AddressZero ? "MINT" : "BURN"}
+          </Tag>
+        )}
+        {formatUnits(value, token?.decimals).replace(/(\.\d{3}).*/, "$1") +
+          " " +
+          token?.symbol}
+      </Space>
+    )
   },
   {
     title: "Token",

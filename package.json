@@ -1,5 +1,5 @@
 {
-  "name": "uhack-subgraph",
+  "name": "erc20-scanner-subgraph",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
@@ -11,7 +11,7 @@
     "test": "graph test"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.68.5",
-    "@graphprotocol/graph-ts": "0.33.0"
+    "@graphprotocol/graph-cli": "0.73.0",
+    "@graphprotocol/graph-ts": "0.35.1"
   }
 }
